@@ -30,7 +30,7 @@ public class Registrate extends User implements RegistrateUser{
 
         if (emailUser.equals("")) { // на то, что пользователь ранее не регистрировался
             System.out.println("пользователь зарегистрирован" + "1");
-            statement.executeUpdate(String.format("insert into userData values(%s, '%s', '%s', '%s', '%s', '%s', %s);",id, password, surname, name, patronymic, email, phone));
+            statement.executeUpdate(String.format("insert into userData values(%s, '%s', '%s', '%s', '%s', '%s', %s, '%s');",id, password, surname, name, patronymic, email, phone, login));
             statement.executeUpdate(String.format("insert into userInfo values('%s', %s, %s);", birthday, 0, id ));
             System.out.println("пользователь зарегистрирован" + "2");
             statement.executeUpdate(String.format("insert into friends (id_user) values(%s);",id));
