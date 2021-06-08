@@ -25,14 +25,14 @@ public class Create extends User implements CreateHelp{
     public static int id = 1;
     private int idCreator = 0;
 
-    public Create(int id, String name, String type, String location, String text, int sumHelp) throws SQLException, IOException, ClassNotFoundException {
+    public Create(int id, String name, String type, String location, String text, int sumHelp, String dataFinished) throws SQLException, IOException, ClassNotFoundException {
+        this.id = ++id;
         this.name = name;
         this.type = type;
         this.location = location;
         this.text = text;
         this.sumHelp = sumHelp;
-        this.id = ++id;
-        System.out.println(id + "конструктор");
+        this.dataFinished = dataFinished;
     }
     public Create() throws SQLException, IOException, ClassNotFoundException {
 
@@ -53,13 +53,13 @@ public class Create extends User implements CreateHelp{
     }
 
     @Override
-    public void createHelp(String name, String type, String location, String text, int sumHelp) throws SQLException, IOException, ClassNotFoundException {
-        Create newCreateHelp = new Create(id, name, type,  location,  text,  sumHelp);
+    public void createHelp(String name, String type, String location, String text, int sumHelp, String dataFinished) throws SQLException, IOException, ClassNotFoundException {
+        Create newCreateHelp = new Create(id, name, type,  location,  text,  sumHelp, dataFinished);
         System.out.println(id + "метод");
         Date dateRegistrate = new Date();
         dataRegistration = dateRegistrate.toString();
 
-        statement.executeUpdate(String.format("insert into allHelp values(%s, '%s', '%s', '%s', '%s', %s, '%s', '%s', '%s', %s);",
-                id, name, type, location, text, sumHelp, "create", dataRegistration, dataFinished, super.id));
+        statement.executeUpdate(String.format("insert into allHelp values(%s, '%s', '%s', '%s', '%s', %s, '%s', '%s', '%s', %s, %s, %s);",
+                id, name, type, location, text, sumHelp, "actively", dataRegistration, dataFinished, super.id, 0, 0));
     }
 }

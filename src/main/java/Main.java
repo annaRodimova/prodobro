@@ -15,21 +15,25 @@ public class Main {
                 "Михайлович", "1990-11-12");
 
 
+*/
+        /*Create create2 =  new Create();
+        create2.createHelp("сбор денег на лечение", "лечение", "Россия", "бла бла бла", 100000000, "1 февраля 2022");
 
-        Create create2 =  new Create();
-        create2.createHelp("накормить бродячих псов", "помощь собакам", "Италия", "бла бла бла", 800);
+         */
 
 
-        */
+
         ArrayList<String> columnHelp = new ArrayList<>();
         HashMap<Integer, ArrayList<String>> selectHelp = new HashMap<>();
         Found found = new Found();
-        selectHelp = found.foundLocation("Кипр");
-
+        selectHelp = found.foundName("сбор денег на лечение");
+        System.out.println(selectHelp.size());
         for (int y = 2; y < selectHelp.size()+2; y++) {
             columnHelp = selectHelp.get(y);
             System.out.println(columnHelp);
         }
+
+
 
 
     }
